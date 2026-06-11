@@ -11,29 +11,56 @@ header{background:#c0392b;color:#fff;padding:13px 20px;display:flex;align-items:
 header h1{font-size:17px;font-weight:700}
 header p{font-size:11px;opacity:.8;margin-top:1px}
 .wrap{max-width:720px;margin:0 auto;padding:18px 14px}
+
+/* SEARCH CARD */
 .scard{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.1);margin-bottom:16px}
 .scard-title{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
-.source-badge{display:inline-flex;align-items:center;gap:5px;background:#eafaf1;color:#1e8449;font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin-bottom:12px;border:1px solid #a9dfbf}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.fields .full{grid-column:1/-1}
+.source-badge{display:inline-flex;align-items:center;gap:5px;background:#eafaf1;color:#1e8449;font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin-bottom:14px;border:1px solid #a9dfbf}
+
+/* INPUT PRINCIPALE con pulsante GPS incorporato */
+.input-group{position:relative;margin-bottom:10px}
+.input-group label{display:block;font-size:11px;font-weight:600;color:#777;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
+.input-with-btn{display:flex;gap:0}
+.input-with-btn input{flex:1;padding:10px 13px;border:1.5px solid #ddd;border-radius:7px 0 0 7px;font-size:14px;outline:none;transition:border .2s;background:#fff;min-width:0}
+.input-with-btn input:focus{border-color:#c0392b;z-index:1}
+.input-with-btn input.has-val{border-color:#27ae60;background:#f9fff9}
+.gps-btn{padding:10px 13px;background:#f5f5f5;border:1.5px solid #ddd;border-left:none;border-radius:0 7px 7px 0;cursor:pointer;font-size:16px;line-height:1;color:#555;transition:background .15s;white-space:nowrap;flex-shrink:0}
+.gps-btn:hover{background:#e8e8e8}
+.gps-btn:disabled{opacity:.5;cursor:not-allowed}
+.gps-hint{font-size:11px;color:#aaa;margin-top:4px}
+
+/* AUTOCOMPLETE */
+.ac-wrap{position:relative}
+.ac-list{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid #c0392b;border-top:none;border-radius:0 0 8px 8px;z-index:200;max-height:260px;overflow-y:auto;box-shadow:0 6px 18px rgba(0,0,0,.13)}
+.ac-item{padding:10px 13px;cursor:pointer;border-bottom:.5px solid #f5f5f5;line-height:1.35}
+.ac-item:last-child{border-bottom:none}
+.ac-item:hover,.ac-item.hl{background:#fdf5f5}
+.ac-icon{font-size:13px;margin-right:6px;opacity:.6}
+.ac-main{font-size:13px;font-weight:600;color:#1a1a1a}
+.ac-sub{font-size:11px;color:#999;margin-top:2px}
+.ac-item.ac-loading{color:#aaa;font-style:italic;padding:12px 13px}
+.ac-item.ac-empty{color:#bbb;font-style:italic;padding:12px 13px}
+
+/* COMUNE */
+.comune-row{display:flex;gap:8px;margin-bottom:12px}
+.comune-row .field{flex:1}
 .field label{display:block;font-size:11px;font-weight:600;color:#777;margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px}
-.field input{width:100%;padding:9px 12px;border:1.5px solid #ddd;border-radius:7px;font-size:14px;outline:none;transition:border .2s;background:#fff}
+.field input{width:100%;padding:9px 12px;border:1.5px solid #ddd;border-radius:7px;font-size:14px;outline:none;background:#fff}
 .field input:focus{border-color:#c0392b}
-.field input.has-val{border-color:#27ae60;background:#f9fff9}
-.autocomplete-wrap{position:relative}
-.ac-list{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid #c0392b;border-top:none;border-radius:0 0 7px 7px;z-index:100;max-height:220px;overflow-y:auto;box-shadow:0 4px 12px rgba(0,0,0,.12)}
-.ac-item{padding:9px 12px;font-size:13px;cursor:pointer;border-bottom:.5px solid #f0f0f0;line-height:1.3}
-.ac-item:hover,.ac-item.hl{background:#fdf2f2}
-.ac-main{font-weight:600;color:#1a1a1a}
-.ac-sub{font-size:11px;color:#999;margin-top:1px}
-.ac-item.ac-loading{color:#aaa;font-style:italic}
+
+/* ORIGIN TAG */
+.origin-tag{display:none;font-size:12px;color:#1a5276;background:#eaf4fd;border-radius:6px;padding:7px 11px;margin-bottom:12px;line-height:1.4}
+.origin-tag strong{display:block;margin-bottom:1px}
+
+/* BOTTONI */
 .btn-row{display:flex;gap:8px}
 .btn-cerca{flex:1;padding:11px;background:#c0392b;color:#fff;border:none;border-radius:7px;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s}
 .btn-cerca:hover{background:#a93226}
 .btn-cerca:disabled{background:#aaa;cursor:not-allowed}
 .btn-clear{padding:11px 14px;background:#f5f5f5;color:#666;border:1.5px solid #ddd;border-radius:7px;font-size:13px;cursor:pointer}
-.origin-tag{font-size:12px;color:#1a5276;background:#eaf4fd;border-radius:5px;padding:5px 10px;margin-bottom:12px;display:none}
-/* RESULTS */
+.btn-clear:hover{background:#ebebeb}
+
+/* RISULTATI */
 .res-meta{font-size:12px;color:#888;margin-bottom:10px}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:11px}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
@@ -60,13 +87,13 @@ header p{font-size:11px;opacity:.8;margin-top:1px}
 .tval{font-size:12px;color:#888;margin-top:2px}
 .dlbl{font-size:10px;color:#ccc;text-transform:uppercase;letter-spacing:.4px;margin-bottom:1px}
 .est{font-size:10px;color:#bbb;font-style:italic}
-/* LINK RIGA */
 .card-links{display:flex;gap:8px;margin-top:10px;padding-top:9px;border-top:1px solid #f0f0f0;flex-wrap:wrap}
 .maps-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;transition:opacity .15s}
 .maps-btn:hover{opacity:.82}
 .maps-btn.dir{background:#1a73e8;color:#fff}
 .maps-btn.pin{background:#f0f0f0;color:#444;border:1px solid #ddd}
 .tel-link{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;color:#444;background:#f0f0f0;border:1px solid #ddd;text-decoration:none}
+
 /* MISC */
 .errbox{background:#fdecea;border:1px solid #f5b7b1;border-radius:8px;padding:11px 14px;color:#922b21;font-size:13px;margin-bottom:12px;display:none}
 .loading{display:flex;align-items:center;gap:10px;padding:24px 0;color:#777;font-size:13px}
@@ -77,6 +104,7 @@ header p{font-size:11px;opacity:.8;margin-top:1px}
 </style>
 </head>
 <body>
+
 <header>
   <div style="font-size:26px;line-height:1">🔥</div>
   <div>
@@ -89,58 +117,270 @@ header p{font-size:11px;opacity:.8;margin-top:1px}
   <div class="scard">
     <div class="scard-title">📍 Indirizzo di partenza</div>
     <div class="source-badge">✔ Coordinate ufficiali da vigilfuoco.it — giugno 2025</div>
-    <div class="fields">
-      <div class="field full autocomplete-wrap">
-        <label>Via / Piazza / Luogo</label>
-        <input type="text" id="f-via" placeholder="es. Via Toledo, Piazza Garibaldi, Corso Umberto…" autocomplete="off" oninput="onViaInput()" onkeydown="onViaKey(event)"/>
+
+    <!-- CAMPO INDIRIZZO con GPS -->
+    <div class="input-group">
+      <label>Cerca indirizzo</label>
+      <div class="ac-wrap">
+        <div class="input-with-btn">
+          <input type="text" id="f-addr"
+            placeholder="Via, piazza, luogo, edificio…"
+            autocomplete="off"
+            oninput="onAddrInput()"
+            onkeydown="onAddrKey(event)"/>
+          <button class="gps-btn" id="gps-btn" onclick="useGPS()" title="Usa la mia posizione GPS">📡</button>
+        </div>
         <div class="ac-list" id="ac-list" style="display:none"></div>
       </div>
+      <div class="gps-hint">Digita almeno 3 caratteri per i suggerimenti · oppure usa 📡 per la posizione GPS</div>
+    </div>
+
+    <!-- COMUNE -->
+    <div class="comune-row">
       <div class="field">
-        <label>Numero civico <span style="color:#bbb;font-weight:400">(opzionale)</span></label>
-        <input type="text" id="f-civ" placeholder="es. 12" autocomplete="off" oninput="clearOrigin()"/>
-      </div>
-      <div class="field">
-        <label>Comune</label>
+        <label>Comune <span style="font-weight:400;color:#bbb">(restringe la ricerca)</span></label>
         <input type="text" id="f-com" value="Napoli" autocomplete="off" oninput="clearOrigin()"/>
       </div>
     </div>
-    <div class="origin-tag" id="origin-tag"></div>
+
+    <div class="origin-tag" id="origin-tag">
+      <strong id="origin-name"></strong>
+      <span id="origin-coords" style="font-size:10px;color:#aaa"></span>
+    </div>
+
     <div class="btn-row">
       <button class="btn-cerca" id="btn" onclick="cerca()">🔍 Cerca distaccamenti</button>
       <button class="btn-clear" onclick="resetForm()">✕ Reset</button>
     </div>
   </div>
+
   <div class="errbox" id="err"></div>
   <div id="out"></div>
 </div>
 
 <script>
 // ============================================================
-// DATABASE — Fonte: vigilfuoco.it + Excel coordinate giugno 2025
+// DATABASE — vigilfuoco.it + coordinate verificate giugno 2025
 // ============================================================
 const SEDI = [
-  {nome:"Comando Provinciale VVF Napoli",          addr:"Largo Leopoldi Tarantini 1, 80143 Napoli",          cap:"80143",comune:"Napoli",          tel:"081 2595111", lat:40.853990,lng:14.284310, tipo:"comando"},
-  {nome:"Dist. Cittadino Centro Storico",           addr:"Via del Sole, 80138 Napoli",                        cap:"80138",comune:"Napoli",          tel:"081 291044",  lat:40.853090,lng:14.255340, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Mostra",                   addr:"Via Antoni Labriola, 80125 Napoli",                 cap:"80125",comune:"Napoli",          tel:"081 7267786", lat:40.828770,lng:14.194030, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Orientale",                addr:"Via Arenaccia, 80137 Napoli",                       cap:"80137",comune:"Napoli",          tel:"081 7515900", lat:40.861160,lng:14.284000, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Pianura",                  addr:"Via Provinciale Napoli, 80126 Napoli",              cap:"80126",comune:"Napoli",          tel:"081 7267786", lat:40.855980,lng:14.171970, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Ponticelli",               addr:"Via Virginia Woolf, 80147 Napoli",                  cap:"80147",comune:"Napoli",          tel:"081 5551246", lat:40.855780,lng:14.340540, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Scampia",                  addr:"Via Arturo Labriola, 80145 Napoli",                 cap:"80145",comune:"Napoli",          tel:"081 7013140", lat:40.901500,lng:14.244130, tipo:"cittadino"},
-  {nome:"Dist. Cittadino Vomero",                   addr:"Via Iannelli, 80131 Napoli",                        cap:"80131",comune:"Napoli",          tel:"081 5791010", lat:40.859970,lng:14.221980, tipo:"cittadino"},
-  {nome:"Dist. Aeroportuale Napoli",                addr:"Viale Umberto Maddalena, 80144 Napoli",             cap:"80144",comune:"Napoli",          tel:"081 7382950", lat:40.886200,lng:14.290600, tipo:"speciale"},
-  {nome:"Dist. Portuale Calata Marinella",          addr:"Calata Marinella, 80133 Napoli",                    cap:"80133",comune:"Napoli",          tel:"081 4109134", lat:40.839480,lng:14.274130, tipo:"speciale"},
-  {nome:"Distaccamento Afragola",                   addr:"Via Salicelle, 80021 Afragola",                     cap:"80021",comune:"Afragola",        tel:"081 8525722", lat:40.927950,lng:14.313980, tipo:"provinciale"},
-  {nome:"Distaccamento Bacoli – Capomiseno",        addr:"Via Plinio il Vecchio, 80070 Bacoli",               cap:"80070",comune:"Bacoli",          tel:"081 5233534", lat:40.812000,lng:14.082160, tipo:"provinciale"},
-  {nome:"Distaccamento Capri",                      addr:"Via Marina Grande, 80073 Capri",                    cap:"80073",comune:"Capri",           tel:"081 8389523", lat:40.554800,lng:14.244300, tipo:"provinciale"},
-  {nome:"Distaccamento Castellammare di Stabia",    addr:"Via Virgilio, 80053 Castellammare di Stabia",       cap:"80053",comune:"Castellammare di Stabia",tel:"081 8711222",lat:40.702130,lng:14.481430, tipo:"provinciale"},
-  {nome:"Distaccamento Giugliano in Campania",      addr:"Via Spasaro Terra D'Attico, 80014 Giugliano",       cap:"80014",comune:"Giugliano in Campania",tel:"081 3340312",lat:40.933520,lng:14.195220, tipo:"provinciale"},
-  {nome:"Distaccamento Ischia",                     addr:"Via Michele Mazzella, 80077 Ischia",                cap:"80077",comune:"Ischia",          tel:"081 991507",  lat:40.730900,lng:13.942070, tipo:"provinciale"},
-  {nome:"Distaccamento Nola",                       addr:"Via On. F. Napolitano, 80035 Nola",                 cap:"80035",comune:"Nola",            tel:"081 5108795", lat:40.924990,lng:14.528020, tipo:"provinciale"},
-  {nome:"Distaccamento Pozzuoli",                   addr:"Via Antonio De Curtis, 80078 Pozzuoli",             cap:"80078",comune:"Pozzuoli",        tel:"081 5247340", lat:40.838820,lng:14.121180, tipo:"provinciale"},
-  {nome:"Distaccamento Sorrento",                   addr:"Via dei Platani, 80067 Sorrento",                   cap:"80067",comune:"Sorrento",        tel:"081 5342283", lat:40.626410,lng:14.375820, tipo:"provinciale"},
-  {nome:"Distaccamento Torre del Greco",            addr:"Via Calastro, 80059 Torre del Greco",               cap:"80059",comune:"Torre del Greco", tel:"081 8822555", lat:40.789220,lng:14.358780, tipo:"provinciale"},
+  {nome:"Comando Provinciale VVF Napoli",        addr:"Largo Leopoldi Tarantini 1, 80143 Napoli",         tel:"081 2595111",lat:40.853990,lng:14.284310,tipo:"comando"},
+  {nome:"Dist. Cittadino Centro Storico",         addr:"Via del Sole, 80138 Napoli",                       tel:"081 291044", lat:40.853090,lng:14.255340,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Mostra",                 addr:"Via Antoni Labriola, 80125 Napoli",                tel:"081 7267786",lat:40.828770,lng:14.194030,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Orientale",              addr:"Via Arenaccia, 80137 Napoli",                      tel:"081 7515900",lat:40.861160,lng:14.284000,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Pianura",                addr:"Via Provinciale Napoli, 80126 Napoli",             tel:"081 7267786",lat:40.855980,lng:14.171970,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Ponticelli",             addr:"Via Virginia Woolf, 80147 Napoli",                 tel:"081 5551246",lat:40.855780,lng:14.340540,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Scampia",                addr:"Via Arturo Labriola, 80145 Napoli",                tel:"081 7013140",lat:40.901500,lng:14.244130,tipo:"cittadino"},
+  {nome:"Dist. Cittadino Vomero",                 addr:"Via Iannelli, 80131 Napoli",                       tel:"081 5791010",lat:40.859970,lng:14.221980,tipo:"cittadino"},
+  {nome:"Dist. Aeroportuale Napoli",              addr:"Viale Umberto Maddalena, 80144 Napoli",            tel:"081 7382950",lat:40.886200,lng:14.290600,tipo:"speciale"},
+  {nome:"Dist. Portuale Calata Marinella",        addr:"Calata Marinella, 80133 Napoli",                   tel:"081 4109134",lat:40.839480,lng:14.274130,tipo:"speciale"},
+  {nome:"Distaccamento Afragola",                 addr:"Via Salicelle, 80021 Afragola",                    tel:"081 8525722",lat:40.927950,lng:14.313980,tipo:"provinciale"},
+  {nome:"Distaccamento Bacoli – Capomiseno",      addr:"Via Plinio il Vecchio, 80070 Bacoli",              tel:"081 5233534",lat:40.812000,lng:14.082160,tipo:"provinciale"},
+  {nome:"Distaccamento Capri",                    addr:"Via Marina Grande, 80073 Capri",                   tel:"081 8389523",lat:40.554800,lng:14.244300,tipo:"provinciale"},
+  {nome:"Distaccamento Castellammare di Stabia",  addr:"Via Virgilio, 80053 Castellammare di Stabia",      tel:"081 8711222",lat:40.702130,lng:14.481430,tipo:"provinciale"},
+  {nome:"Distaccamento Giugliano in Campania",    addr:"Via Spasaro Terra D'Attico, 80014 Giugliano",      tel:"081 3340312",lat:40.933520,lng:14.195220,tipo:"provinciale"},
+  {nome:"Distaccamento Ischia",                   addr:"Via Michele Mazzella, 80077 Ischia",               tel:"081 991507", lat:40.730900,lng:13.942070,tipo:"provinciale"},
+  {nome:"Distaccamento Nola",                     addr:"Via On. F. Napolitano, 80035 Nola",                tel:"081 5108795",lat:40.924990,lng:14.528020,tipo:"provinciale"},
+  {nome:"Distaccamento Pozzuoli",                 addr:"Via Antonio De Curtis, 80078 Pozzuoli",            tel:"081 5247340",lat:40.838820,lng:14.121180,tipo:"provinciale"},
+  {nome:"Distaccamento Sorrento",                 addr:"Via dei Platani, 80067 Sorrento",                  tel:"081 5342283",lat:40.626410,lng:14.375820,tipo:"provinciale"},
+  {nome:"Distaccamento Torre del Greco",          addr:"Via Calastro, 80059 Torre del Greco",              tel:"081 8822555",lat:40.789220,lng:14.358780,tipo:"provinciale"},
 ];
 
+// ============================================================
+// AUTOCOMPLETE — Photon (Komoot): migliore per IT, CORS aperto
+// ============================================================
+let acTimer=null, acResults=[], acIdx=-1, selectedOrigin=null;
+
+function onAddrInput(){
+  clearOrigin();
+  const q = document.getElementById('f-addr').value.trim();
+  clearTimeout(acTimer);
+  if(q.length < 3){ hideAC(); return; }
+  acTimer = setTimeout(() => fetchAC(q), 300);
+}
+
+async function fetchAC(q){
+  showACLoad();
+  try{
+    const com = document.getElementById('f-com').value.trim();
+    // Photon: bbox provincia di Napoli + bias centro Napoli
+    // lang=it, limit=8, bbox approssimativo provincia NA
+    const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q + (com ? ' ' + com : ''))}&limit=8&lang=it&lat=40.853&lon=14.268&zoom=12`;
+    const r = await fetch(url);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    // Filtra solo risultati in Italia
+    const items = (d.features||[]).filter(f=>{
+      const c = f.properties.country;
+      return !c || c.toLowerCase().includes('ital') || c.toLowerCase().includes('it');
+    });
+    acResults = items;
+    renderAC(items);
+  }catch(e){
+    // Fallback Nominatim se Photon non risponde
+    await fetchACNominatim(q);
+  }
+}
+
+async function fetchACNominatim(q){
+  try{
+    const com = document.getElementById('f-com').value.trim()||'Napoli';
+    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q+', '+com+', Italia')}&limit=6&countrycodes=it&addressdetails=1&accept-language=it`;
+    const r = await fetch(url, {headers:{'User-Agent':'VVFNapoliApp/2.0'}});
+    const d = await r.json();
+    // Converti formato Nominatim → formato Photon-like per renderAC
+    acResults = d.map(it=>({
+      _nom: true,
+      _lat: parseFloat(it.lat),
+      _lon: parseFloat(it.lon),
+      _display: it.display_name,
+      properties: {
+        name: it.address?.road||it.address?.pedestrian||it.name||it.display_name.split(',')[0],
+        housenumber: it.address?.house_number||'',
+        city: it.address?.city||it.address?.town||it.address?.village||'',
+        county: it.address?.county||'',
+        country: 'Italia'
+      },
+      geometry: { coordinates: [parseFloat(it.lon), parseFloat(it.lat)] }
+    }));
+    renderAC(acResults);
+  }catch(e){ hideAC(); }
+}
+
+function showACLoad(){
+  const l = document.getElementById('ac-list');
+  l.innerHTML = '<div class="ac-item ac-loading">🔍 Ricerca in corso…</div>';
+  l.style.display = 'block';
+}
+
+function renderAC(items){
+  const l = document.getElementById('ac-list');
+  if(!items.length){
+    l.innerHTML = '<div class="ac-item ac-empty">Nessun risultato — prova a essere più specifico</div>';
+    l.style.display = 'block';
+    return;
+  }
+  acIdx = -1;
+  l.innerHTML = items.map((f,i)=>{
+    const p = f.properties;
+    // Componi riga principale e sottotitolo
+    const parts = [p.name, p.housenumber].filter(Boolean);
+    const main = parts.join(' ') || p.street || '—';
+    const sub = [p.district||p.suburb, p.city||p.town||p.village, p.county||p.state].filter(Boolean).join(', ');
+    const icon = p.type === 'house' ? '🏠' : p.type === 'street' ? '🛣️' : p.osm_type === 'N' ? '📍' : '📍';
+    return `<div class="ac-item" data-i="${i}" onmousedown="selectAC(${i})">
+      <div class="ac-main"><span class="ac-icon">${icon}</span>${escHtml(main)}</div>
+      ${sub ? `<div class="ac-sub">${escHtml(sub)}</div>` : ''}
+    </div>`;
+  }).join('');
+  l.style.display = 'block';
+}
+
+function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function hideAC(){ document.getElementById('ac-list').style.display='none'; }
+
+function selectAC(i){
+  const f = acResults[i]; if(!f) return;
+  const p = f.properties;
+  const coords = f.geometry?.coordinates;
+  const lat = f._nom ? f._lat : coords[1];
+  const lng = f._nom ? f._lon : coords[0];
+
+  // Componi label display
+  const main = [p.name, p.housenumber].filter(Boolean).join(' ') || p.street || '';
+  const sub  = [p.district||p.suburb, p.city||p.town||p.village].filter(Boolean).join(', ');
+  const display = f._nom ? f._display : [main, sub, p.country].filter(Boolean).join(', ');
+
+  document.getElementById('f-addr').value = [main, sub].filter(Boolean).join(', ') || display.split(',')[0];
+  document.getElementById('f-addr').classList.add('has-val');
+
+  // Aggiorna comune se rilevato
+  const com = p.city||p.town||p.village||'';
+  if(com) document.getElementById('f-com').value = com;
+
+  hideAC();
+  selectedOrigin = { lat, lng, display };
+  showOriginTag(display, lat, lng);
+}
+
+function onAddrKey(e){
+  const items = document.querySelectorAll('#ac-list .ac-item:not(.ac-loading):not(.ac-empty)');
+  if(e.key==='ArrowDown'){ e.preventDefault(); acIdx=Math.min(acIdx+1,items.length-1); hlAC(items); }
+  else if(e.key==='ArrowUp'){ e.preventDefault(); acIdx=Math.max(acIdx-1,0); hlAC(items); }
+  else if(e.key==='Enter'){ e.preventDefault(); if(acIdx>=0&&acResults[acIdx]) selectAC(acIdx); else cerca(); }
+  else if(e.key==='Escape') hideAC();
+}
+function hlAC(items){ items.forEach((el,i)=>el.classList.toggle('hl',i===acIdx)); }
+
+function showOriginTag(display, lat, lng){
+  const t = document.getElementById('origin-tag');
+  document.getElementById('origin-name').textContent = '✔ ' + display.split(',').slice(0,3).join(', ');
+  document.getElementById('origin-coords').textContent = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  t.style.display = 'block';
+}
+
+function clearOrigin(){
+  selectedOrigin = null;
+  document.getElementById('origin-tag').style.display = 'none';
+  document.getElementById('f-addr').classList.remove('has-val');
+}
+
+// ============================================================
+// GPS
+// ============================================================
+function useGPS(){
+  if(!navigator.geolocation){ showErr('GPS non disponibile su questo dispositivo.'); return; }
+  const btn = document.getElementById('gps-btn');
+  btn.disabled = true; btn.textContent = '⏳';
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      btn.disabled = false; btn.textContent = '📡';
+      const lat = pos.coords.latitude, lng = pos.coords.longitude;
+      selectedOrigin = { lat, lng, display: `Posizione GPS (${lat.toFixed(5)}, ${lng.toFixed(5)})` };
+      document.getElementById('f-addr').value = 'Posizione GPS rilevata';
+      document.getElementById('f-addr').classList.add('has-val');
+      showOriginTag(`Posizione GPS`, lat, lng);
+      hideAC();
+    },
+    err => {
+      btn.disabled = false; btn.textContent = '📡';
+      showErr('GPS: ' + (err.code===1?'Permesso negato. Abilita la geolocalizzazione nel browser.':err.message));
+    },
+    { enableHighAccuracy: true, timeout: 8000 }
+  );
+}
+
+// ============================================================
+// GEOCODING FALLBACK (se si preme Cerca senza selezionare)
+// ============================================================
+async function geocodeFull(){
+  const q = document.getElementById('f-addr').value.trim();
+  const com = document.getElementById('f-com').value.trim()||'Napoli';
+  if(!q) throw new Error('Inserisci un indirizzo.');
+
+  // Prova Photon prima
+  try{
+    const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q+' '+com)}&limit=1&lang=it&lat=40.853&lon=14.268&zoom=12`;
+    const r = await fetch(url);
+    const d = await r.json();
+    if(d.features&&d.features.length){
+      const f = d.features[0], c = f.geometry.coordinates;
+      const p = f.properties;
+      const display = [p.name, p.city||p.town||p.village, p.country].filter(Boolean).join(', ');
+      return { lat: c[1], lng: c[0], display };
+    }
+  }catch(e){}
+
+  // Fallback Nominatim
+  const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q+', '+com+', Italia')}&limit=1&countrycodes=it&accept-language=it`;
+  const r = await fetch(url, {headers:{'User-Agent':'VVFNapoliApp/2.0'}});
+  if(!r.ok) throw new Error('Geocoding non disponibile.');
+  const d = await r.json();
+  if(!d.length) throw new Error(`"${q}, ${com}" non trovato. Prova a essere più specifico.`);
+  return { lat: parseFloat(d[0].lat), lng: parseFloat(d[0].lon), display: d[0].display_name };
+}
+
+// ============================================================
+// ROUTING — OSRM table 1→N
 // ============================================================
 function hav(a,b,c,d){
   const R=6371,dL=(c-a)*Math.PI/180,dN=(d-b)*Math.PI/180;
@@ -148,175 +388,87 @@ function hav(a,b,c,d){
   return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
 }
 
-let acTimer=null,acResults=[],acIdx=-1,selectedOrigin=null;
-
-function onViaInput(){
-  clearOrigin();
-  const q=document.getElementById('f-via').value.trim();
-  const com=document.getElementById('f-com').value.trim()||'Napoli';
-  clearTimeout(acTimer);
-  if(q.length<3){hideAC();return;}
-  acTimer=setTimeout(()=>fetchAC(q,com),350);
-}
-
-async function fetchAC(q,com){
-  showACLoad();
+async function getDistances(oLat, oLng){
+  const coords = [`${oLng},${oLat}`, ...SEDI.map(s=>`${s.lng},${s.lat}`)].join(';');
+  const dests  = SEDI.map((_,i)=>i+1).join(';');
+  const url = `https://router.project-osrm.org/table/v1/driving/${coords}?sources=0&destinations=${dests}&annotations=duration,distance`;
   try{
-    const url=`https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q+', '+com+', Italia')}&limit=6&countrycodes=it&addressdetails=1&accept-language=it`;
-    const r=await fetch(url,{headers:{'User-Agent':'VVFNapoliApp/2.0'}});
-    const d=await r.json();
-    acResults=d; renderAC(d);
-  }catch(e){hideAC();}
+    const r = await fetch(url, {signal: AbortSignal.timeout(12000)});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(d.code!=='Ok') throw new Error(d.code);
+    return SEDI.map((s,i)=>({
+      ...s,
+      dist: (d.distances&&d.distances[0][i]!=null) ? d.distances[0][i]/1000 : hav(oLat,oLng,s.lat,s.lng)*1.35,
+      dur:  d.durations[0][i]/60,
+      approx: !(d.distances&&d.distances[0][i]!=null)
+    }));
+  }catch(e){
+    console.warn('OSRM fallback:',e.message);
+    return SEDI.map(s=>{ const km=hav(oLat,oLng,s.lat,s.lng); return{...s,dist:km*1.35,dur:km*1.35/40*60,approx:true}; });
+  }
 }
 
-function showACLoad(){
-  const l=document.getElementById('ac-list');
-  l.innerHTML='<div class="ac-item ac-loading">Ricerca in corso…</div>';
-  l.style.display='block';
-}
-
-function renderAC(items){
-  const l=document.getElementById('ac-list');
-  if(!items.length){l.innerHTML='<div class="ac-item ac-loading">Nessun risultato</div>';l.style.display='block';return;}
-  acIdx=-1;
-  l.innerHTML=items.map((it,i)=>{
-    const a=it.address||{};
-    const main=a.road||a.pedestrian||a.path||it.display_name.split(',')[0];
-    const sub=[a.house_number,a.suburb,a.city||a.town||a.village].filter(Boolean).join(', ');
-    return `<div class="ac-item" data-i="${i}" onmousedown="selectAC(${i})">
-      <div class="ac-main">${main}</div>
-      <div class="ac-sub">${sub||it.display_name.split(',').slice(1,3).join(',').trim()}</div>
-    </div>`;
-  }).join('');
-  l.style.display='block';
-}
-
-function hideAC(){document.getElementById('ac-list').style.display='none';}
-
-function selectAC(i){
-  const it=acResults[i];if(!it)return;
-  const a=it.address||{};
-  document.getElementById('f-via').value=a.road||a.pedestrian||a.path||it.display_name.split(',')[0];
-  document.getElementById('f-via').classList.add('has-val');
-  if(a.house_number) document.getElementById('f-civ').value=a.house_number;
-  const com=a.city||a.town||a.village||'';
-  if(com) document.getElementById('f-com').value=com;
+// ============================================================
+// MAIN
+// ============================================================
+async function cerca(){
   hideAC();
-  selectedOrigin={lat:parseFloat(it.lat),lng:parseFloat(it.lon),display:it.display_name};
-  showOriginTag(it.display_name);
+  const btn=document.getElementById('btn'), err=document.getElementById('err'), out=document.getElementById('out');
+  err.style.display='none';
+  btn.disabled=true; btn.textContent='Elaborazione…';
+  try{
+    let origin = selectedOrigin;
+    if(!origin){
+      out.innerHTML='<div class="loading"><div class="spin"></div>Geocoding indirizzo…</div>';
+      origin = await geocodeFull();
+    }
+    out.innerHTML=`<div class="loading"><div class="spin"></div><div>Calcolo distanze stradali…<div class="pbar"><div class="pfill" style="width:60%"></div></div></div></div>`;
+    const results = await getDistances(origin.lat, origin.lng);
+    results.sort((a,b)=>a.dist-b.dist);
+    render(results, origin);
+  }catch(e){
+    showErr(e.message);
+    out.innerHTML='';
+  }finally{
+    btn.disabled=false; btn.textContent='🔍 Cerca distaccamenti';
+  }
 }
 
-function onViaKey(e){
-  const items=document.querySelectorAll('#ac-list .ac-item:not(.ac-loading)');
-  if(e.key==='ArrowDown'){e.preventDefault();acIdx=Math.min(acIdx+1,items.length-1);hlAC(items);}
-  else if(e.key==='ArrowUp'){e.preventDefault();acIdx=Math.max(acIdx-1,0);hlAC(items);}
-  else if(e.key==='Enter'){e.preventDefault();if(acIdx>=0&&acResults[acIdx])selectAC(acIdx);else cerca();}
-  else if(e.key==='Escape')hideAC();
+function showErr(msg){
+  const e=document.getElementById('err');
+  e.textContent='❌ '+msg;
+  e.style.display='block';
 }
-function hlAC(items){items.forEach((el,i)=>{el.classList.toggle('hl',i===acIdx);});}
 
-function showOriginTag(txt){
-  const t=document.getElementById('origin-tag');
-  t.textContent='✔ Posizione: '+txt.split(',').slice(0,3).join(', ');
-  t.style.display='block';
-}
-function clearOrigin(){
-  selectedOrigin=null;
-  document.getElementById('origin-tag').style.display='none';
-  document.getElementById('f-via').classList.remove('has-val');
-}
 function resetForm(){
-  ['f-via','f-civ'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-addr').value='';
   document.getElementById('f-com').value='Napoli';
-  clearOrigin();hideAC();
+  clearOrigin(); hideAC();
   document.getElementById('out').innerHTML='';
   document.getElementById('err').style.display='none';
 }
 
-async function geocodeFull(){
-  const via=document.getElementById('f-via').value.trim();
-  const civ=document.getElementById('f-civ').value.trim();
-  const com=document.getElementById('f-com').value.trim()||'Napoli';
-  if(!via) throw new Error('Inserisci via o nome del luogo.');
-  const q=[via,civ,com,'Italia'].filter(Boolean).join(', ');
-  const url=`https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q)}&limit=1&countrycodes=it&accept-language=it`;
-  const r=await fetch(url,{headers:{'User-Agent':'VVFNapoliApp/2.0'}});
-  if(!r.ok) throw new Error('Geocoding non disponibile ('+r.status+')');
-  const d=await r.json();
-  if(!d.length) throw new Error(`"${q}" non trovato. Verifica via e comune.`);
-  return{lat:parseFloat(d[0].lat),lng:parseFloat(d[0].lon),display:d[0].display_name};
-}
+// ============================================================
+// RENDER RISULTATI
+// ============================================================
+function fD(km){ return km<1 ? Math.round(km*1000)+' m' : km.toFixed(1)+' km'; }
+function fT(m){ return m<60 ? Math.round(m)+' min' : Math.floor(m/60)+'h '+Math.round(m%60)+'min'; }
+function dirUrl(o,s){ return `https://www.google.com/maps/dir/?api=1&origin=${o.lat},${o.lng}&destination=${s.lat},${s.lng}&travelmode=driving`; }
+function pinUrl(s){ return `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}`; }
+const TN = {comando:'Comando',cittadino:'Citt.',provinciale:'Prov.',speciale:'Speciale'};
 
-async function getDistances(oLat,oLng){
-  const coords=[`${oLng},${oLat}`,...SEDI.map(s=>`${s.lng},${s.lat}`)].join(';');
-  const dests=SEDI.map((_,i)=>i+1).join(';');
-  const url=`https://router.project-osrm.org/table/v1/driving/${coords}?sources=0&destinations=${dests}&annotations=duration,distance`;
-  try{
-    const r=await fetch(url,{signal:AbortSignal.timeout(12000)});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d=await r.json();
-    if(d.code!=='Ok') throw new Error(d.code);
-    return SEDI.map((s,i)=>({
-      ...s,
-      dist:(d.distances&&d.distances[0][i]!=null)?d.distances[0][i]/1000:hav(oLat,oLng,s.lat,s.lng)*1.35,
-      dur:d.durations[0][i]/60,
-      approx:!(d.distances&&d.distances[0][i]!=null)
-    }));
-  }catch(e){
-    console.warn('OSRM fallback haversine:',e.message);
-    return SEDI.map(s=>{const km=hav(oLat,oLng,s.lat,s.lng);return{...s,dist:km*1.35,dur:km*1.35/40*60,approx:true};});
-  }
-}
-
-async function cerca(){
-  hideAC();
-  const btn=document.getElementById('btn'),err=document.getElementById('err'),out=document.getElementById('out');
-  err.style.display='none';
-  btn.disabled=true;btn.textContent='Elaborazione…';
-  try{
-    let origin=selectedOrigin;
-    if(!origin){
-      out.innerHTML='<div class="loading"><div class="spin"></div>Geocoding indirizzo…</div>';
-      origin=await geocodeFull();
-    }
-    out.innerHTML=`<div class="loading"><div class="spin"></div><div>Calcolo distanze stradali…<div class="pbar"><div class="pfill" style="width:60%"></div></div></div></div>`;
-    const results=await getDistances(origin.lat,origin.lng);
-    results.sort((a,b)=>a.dist-b.dist);
-    render(results,origin);
-  }catch(e){
-    err.textContent='❌ '+e.message;
-    err.style.display='block';out.innerHTML='';
-  }finally{
-    btn.disabled=false;btn.textContent='🔍 Cerca distaccamenti';
-  }
-}
-
-function fD(km){return km<1?(Math.round(km*1000)+' m'):(km.toFixed(1)+' km')}
-function fT(m){return m<60?(Math.round(m)+' min'):(Math.floor(m/60)+'h '+Math.round(m%60)+'min')}
-
-// Link direzioni: origin → destinazione
-function dirUrl(origin,s){
-  return `https://www.google.com/maps/dir/?api=1&origin=${origin.lat},${origin.lng}&destination=${s.lat},${s.lng}&travelmode=driving`;
-}
-// Link pin sede
-function pinUrl(s){
-  return `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}`;
-}
-
-const TN={comando:'Comando',cittadino:'Citt.',provinciale:'Prov.',speciale:'Speciale'};
-
-function render(list,origin){
-  let h=`<p class="res-meta">📍 <strong>${origin.display.split(',').slice(0,3).join(',')}</strong> — ${list.length} sedi ordinate per distanza stradale</p>`;
-  h+=`<div class="legend">
+function render(list, origin){
+  let h = `<p class="res-meta">📍 <strong>${origin.display.split(',').slice(0,3).join(',')}</strong> — ${list.length} sedi ordinate per distanza stradale</p>`;
+  h += `<div class="legend">
     <span class="leg"><span class="legdot" style="background:#c0392b"></span>Comando</span>
     <span class="leg"><span class="legdot" style="background:#1e8449"></span>Dist. Cittadino</span>
     <span class="leg"><span class="legdot" style="background:#1a5276"></span>Dist. Provinciale</span>
     <span class="leg"><span class="legdot" style="background:#7d6608"></span>Speciale/Porto/Aerop.</span>
   </div>`;
-
   list.forEach((s,i)=>{
-    const rc=i===0?'r1':i===1?'r2':i===2?'r3':'';
-    h+=`
+    const rc = i===0?'r1':i===1?'r2':i===2?'r3':'';
+    h += `
     <div class="card ${rc}">
       <div class="card-top">
         <div class="badge">${i+1}</div>
@@ -332,23 +484,16 @@ function render(list,origin){
         </div>
       </div>
       <div class="card-links">
-        <a class="maps-btn dir" href="${dirUrl(origin,s)}" target="_blank">
-          🗺 Indicazioni stradali
-        </a>
-        <a class="maps-btn pin" href="${pinUrl(s)}" target="_blank">
-          📍 Vedi sede sulla mappa
-        </a>
-        <a class="tel-link" href="tel:${s.tel.replace(/\s/g,'')}">
-          ☎ ${s.tel}
-        </a>
+        <a class="maps-btn dir" href="${dirUrl(origin,s)}" target="_blank">🗺 Indicazioni stradali</a>
+        <a class="maps-btn pin" href="${pinUrl(s)}" target="_blank">📍 Vedi sede</a>
+        <a class="tel-link" href="tel:${s.tel.replace(/\s/g,'')}">☎ ${s.tel}</a>
       </div>
     </div>`;
   });
-
-  document.getElementById('out').innerHTML=h;
+  document.getElementById('out').innerHTML = h;
 }
 
-document.addEventListener('click',e=>{if(!e.target.closest('.autocomplete-wrap'))hideAC();});
+document.addEventListener('click', e=>{ if(!e.target.closest('.ac-wrap')) hideAC(); });
 </script>
 </body>
 </html>
